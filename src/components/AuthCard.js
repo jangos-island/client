@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   cardActions: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "center"
   },
   hintError: {
     position: "absolute",
@@ -33,15 +34,18 @@ const useStyles = makeStyles(theme => ({
   link: {
     textDecoration: "underline",
     color: theme.palette.primary.main,
-    cursor: "pointer",
+    cursor: "pointer"
   }
 }));
 
-const loginText = "Do not have an account?"
-const registerText = "Already have an account?"
+const loginText = "Do not have an account?";
+const registerText = "Already have an account?";
 
-function AuthCard() {
+function AuthCard({ setToken }) {
   const classes = useStyles();
+  const location = useLocation();
+  const history = useHistory();
+  let { from } = location.state || { from: { pathname: "/" } };
   const [isNewUser, setNewUser] = useState(false);
   const [
     { values, errors, setField, setFieldError },
@@ -58,9 +62,9 @@ function AuthCard() {
     const data = { ...values };
     login(data)
       .then(res => {
-        resetField();
-        setFieldError("login", null);
+        setToken(res.data.key);
         console.log({ res });
+        history.replace(from);
       })
       .catch(err => {
         resetField();
@@ -77,8 +81,8 @@ function AuthCard() {
     };
     register(data)
       .then(res => {
-        resetField();
-        setFieldError("register", null);
+        setToken(res.data.key);
+        history.replace(from);
         console.log({ res });
       })
       .catch(err => {
@@ -152,9 +156,19 @@ function AuthCard() {
         <CardActions className={classes.cardActions}>
           <Typography variant="body2">
             {isNewUser ? registerText : loginText}
-            <span onClick={() => setNewUser(prev => !prev)} className={classes.link}>{isNewUser ? "Register" : "Login"}</span>
+            <span
+              onClick={() => setNewUser(prev => !prev)}
+              className={classes.link}
+            >
+              {isNewUser ? "Register" : "Login"}
+            </span>
           </Typography>
-          <Button variant="contained" onClick={handleSubmit} color="primary" size="large">
+          <Button
+            variant="contained"
+            onClick={handleSubmit}
+            color="primary"
+            size="large"
+          >
             {isNewUser ? "Register" : "Login"}
           </Button>
         </CardActions>
