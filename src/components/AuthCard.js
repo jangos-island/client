@@ -19,8 +19,9 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 300,
     width: 300,
-    margin: "0 auto",
-    maxWidth: 400
+    paddingTop: "1%",
+    margin: "0 auto"
+    // maxWidth: 400
   },
   withMargin: {
     marginBottom: theme.spacing(1.5)
