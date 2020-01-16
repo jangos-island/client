@@ -160,7 +160,7 @@ function AuthCard({ setToken }) {
               onClick={() => setNewUser(prev => !prev)}
               className={classes.link}
             >
-              {isNewUser ? "Register" : "Login"}
+              {isNewUser ? "Login" : "Register"}
             </span>
           </Typography>
           <Button
