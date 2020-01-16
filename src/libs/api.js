@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://lambda-mud-test.herokuapp.com";
+const baseURL = "https://jango-island-production.herokuapp.com";
 const api = axios.create({ baseURL });
 
 export function login(data) {
