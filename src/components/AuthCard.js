@@ -7,8 +7,8 @@ import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CardMedia from "@material-ui/core/CardMedia";
 import { useFormState } from "react-use-form-state";
-
 import { login, register } from "../libs/api";
 
 const useStyles = makeStyles(theme => ({
@@ -17,7 +17,10 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 400
   },
   media: {
-    height: 140
+    height: 300,
+    width: 300,
+    paddingTop: "1%",
+    margin: "0 auto"
   },
   withMargin: {
     marginBottom: theme.spacing(1.5)
@@ -110,9 +113,15 @@ function AuthCard({ setToken }) {
   return (
     <form onSubmit={handleSubmit}>
       <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          component="img"
+          image={require("../assets/JangosIsland.png")}
+          title="island"
+        />
         <CardContent>
           <Typography align="center" gutterBottom variant="h5" component="h2">
-            Welcome to Jangos Island
+            Can you escape the island?
           </Typography>
           <TextField
             className={classes.withMargin}
