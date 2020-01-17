@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -52,5 +53,9 @@ function Home({ setToken }) {
     </div>
   );
 }
+
+Home.propTypes = {
+  setToken: PropTypes.func.isRequired
+};
 
 export default Home;
