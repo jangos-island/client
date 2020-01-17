@@ -15,7 +15,7 @@ function GameViewer() {
   return (
     <>
       <Paper variant="outlined" className={classes.paper}>
-        Room Info
+        Game Viewer
       </Paper>
     </>
   );

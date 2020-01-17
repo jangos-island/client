@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import Header from "./Header";
 import GameViewer from "./GameViewer";
+import Extra from "./Extra";
+import Footer from "./Footer";
+import RoomInfo from "./RoomInfo";
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -13,11 +15,6 @@ const useStyle = makeStyles(theme => ({
   },
   header: {
     textAlign: "center"
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary
   }
 }));
 
@@ -35,19 +32,13 @@ function Home({ setToken }) {
           <GameViewer />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Paper variant="outlined" className={classes.paper}>
-            Room Info
-          </Paper>
+          <RoomInfo />
         </Grid>
         <Grid item xs={12} md={12}>
-          <Paper variant="outlined" className={classes.paper}>
-            Extra
-          </Paper>
+          <Extra />
         </Grid>
         <Grid item xs={12} md={12}>
-          <Paper variant="outlined" className={classes.paper}>
-            Footer
-          </Paper>
+          <Footer />
         </Grid>
       </Grid>
     </div>
