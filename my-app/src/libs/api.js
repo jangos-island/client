@@ -1,6 +1,6 @@
 import axios from "axios";
+import { baseURL } from '../api-config'
 
-const baseURL = "https://jango-island-production.herokuapp.com";
 const api = axios.create({ baseURL });
 
 export function login(data) {
