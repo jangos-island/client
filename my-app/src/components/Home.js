@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import { gameInit, move } from "../libs/protected-api";
+import { gameInit, move, getRooms } from "../libs/protected-api";
 import Header from "./Header";
-import GameViewer from "./GameViewer";
+import GameViewer from "./GameViewer/GameViewer";
 import Extra from "./Extra";
 import Footer from "./Footer";
 import RoomInfo from "./RoomInfo";
@@ -22,6 +22,20 @@ const useStyle = makeStyles(theme => ({
 function Home({ setToken }) {
   const classes = useStyle();
   const [gameState, setState] = useState("");
+  const [rooms, setRooms] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(_ => true);
+    const fetchRooms = async () => {
+      const res = await getRooms();
+      if (res.data) {
+        setRooms(_ => res.data);
+      }
+    };
+    fetchRooms();
+    setLoading(_ => false);
+  }, []);
 
   useEffect(() => {
     const init = async () => {
@@ -42,6 +56,8 @@ function Home({ setToken }) {
 
   const handleLogout = () => setToken(null);
 
+  console.log({gameState})
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -49,7 +65,12 @@ function Home({ setToken }) {
           <Header onLogout={handleLogout} />
         </Grid>
         <Grid item xs={12} md={8}>
-          <GameViewer handleClick={handleClick} gameState={gameState} />
+          <GameViewer
+            isLoading={isLoading}
+            gameState={gameState}
+            rooms={rooms}
+            handleClick={handleClick}
+          />
         </Grid>
         <Grid item xs={12} md={4}>
           <RoomInfo gameState={gameState} />
