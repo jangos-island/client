@@ -9,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CardMedia from "@material-ui/core/CardMedia";
 import { useFormState } from "react-use-form-state";
-import { login, register } from "../libs/api";
+import { login, register } from "../libs/auth-api";
 
 const useStyles = makeStyles(theme => ({
   card: {
