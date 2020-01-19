@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
+import { gameInit, move } from "../libs/protected-api";
 import Header from "./Header";
 import GameViewer from "./GameViewer";
 import Extra from "./Extra";
@@ -20,8 +21,27 @@ const useStyle = makeStyles(theme => ({
 
 function Home({ setToken }) {
   const classes = useStyle();
+  const [gameState, setState] = useState("");
+
+  useEffect(() => {
+    const init = async () => {
+      const res = await gameInit();
+      if (res.data) {
+        setState(_ => res.data);
+      }
+    };
+    init();
+  }, []);
+
+  const handleClick = direction => async () => {
+    const res = await move(direction);
+    if (res.data) {
+      setState(_ => res.data);
+    }
+  };
 
   const handleLogout = () => setToken(null);
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -29,10 +49,10 @@ function Home({ setToken }) {
           <Header onLogout={handleLogout} />
         </Grid>
         <Grid item xs={12} md={8}>
-          <GameViewer />
+          <GameViewer handleClick={handleClick} gameState={gameState} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <RoomInfo />
+          <RoomInfo gameState={gameState} />
         </Grid>
         <Grid item xs={12} md={12}>
           <Extra />
