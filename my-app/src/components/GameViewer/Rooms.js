@@ -8,7 +8,7 @@ function Rooms({ rooms }) {
     <>
       {rooms.map(room => {
         const { x, y } = transformCoords({ x: room.x, y: room.y });
-        return <Circle x={x} y={y} radius={8} fill={"green"} />;
+        return <Circle key={room.id} x={x} y={y} radius={8} fill={"green"} />;
       })}
     </>
   );
