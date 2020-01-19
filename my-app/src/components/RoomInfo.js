@@ -20,8 +20,8 @@ function RoomInfo({ gameState }) {
         <Typography variant="body1">{gameState.description}</Typography>
         <Typography variant="subtitle1">Players:</Typography>
         {gameState.players &&
-          gameState.players.map(player => (
-            <Typography variant="body1">{`- ${player}`}</Typography>
+          gameState.players.map((player, idx) => (
+            <Typography key={idx} variant="body1">{`- ${player}`}</Typography>
           ))}
       </Paper>
     </>
