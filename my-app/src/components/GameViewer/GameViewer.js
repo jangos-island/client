@@ -11,6 +11,10 @@ const useStyle = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary
+  },
+  canvasContainer: {
+    height: 600,
+    overflow: "hidden"
   }
 }));
 
@@ -41,7 +45,9 @@ function GameViewer({ isLoading, gameState, rooms, handleClick }) {
       <Paper variant="outlined" className={classes.paper}>
         {isLoading && <>"Loading..."</>}
         <Typography variant="subtitle1">{gameState.title}</Typography>
-        <Canvas rooms={rooms} playerCoord={gameState.coord} />
+        <div className={classes.canvasContainer}>
+          <Canvas rooms={rooms} playerCoord={gameState.coord} />
+        </div>
         <Navigation handleClick={handleClick} />
       </Paper>
     </>
