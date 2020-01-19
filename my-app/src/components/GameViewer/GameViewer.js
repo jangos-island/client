@@ -41,7 +41,7 @@ function GameViewer({ isLoading, gameState, rooms, handleClick }) {
       <Paper variant="outlined" className={classes.paper}>
         {isLoading && <>"Loading..."</>}
         <Typography variant="subtitle1">{gameState.title}</Typography>
-        <Canvas rooms={rooms} currentRoom={gameState.room_id} />
+        <Canvas rooms={rooms} playerCoord={gameState.coord} />
         <Navigation handleClick={handleClick} />
       </Paper>
     </>

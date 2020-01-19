@@ -37,7 +37,7 @@ function EastPath({ room }) {
   return null;
 }
 
-function Path({ rooms }) {
+function Path({ rooms = [] }) {
   return (
     <>
       {rooms.map(room => NorthPath({ room }))}

@@ -56,8 +56,6 @@ function Home({ setToken }) {
 
   const handleLogout = () => setToken(null);
 
-  console.log({gameState})
-
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
