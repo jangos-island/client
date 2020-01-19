@@ -15,3 +15,7 @@ export function gameInit() {
 export function move(direction) {
   return api.post("/api/adv/move/", { direction });
 }
+
+export function getRooms() {
+  return api.get("/api/adv/rooms/");
+}
