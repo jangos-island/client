@@ -6,13 +6,14 @@ import Grid from "@material-ui/core/Grid";
 import { gameInit, move, getRooms } from "../libs/protected-api";
 import Header from "./Header";
 import GameViewer from "./GameViewer/GameViewer";
-import Extra from "./Extra";
+// import Extra from "./Extra";
 import Footer from "./Footer";
 import RoomInfo from "./RoomInfo";
 
 const useStyle = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: theme.spacing(1)
   },
   header: {
     textAlign: "center"
@@ -71,11 +72,11 @@ function Home({ setToken }) {
           />
         </Grid>
         <Grid item xs={12} md={4}>
-          <RoomInfo gameState={gameState} />
+          <RoomInfo gameState={gameState} handleClick={handleClick} />
         </Grid>
-        <Grid item xs={12} md={12}>
+        {/* <Grid item xs={12} md={12}>
           <Extra />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={12}>
           <Footer />
         </Grid>

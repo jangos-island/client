@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-konva";
+import deepOrange from "@material-ui/core/colors/deepOrange";
 
 import { transformCoords } from "./util";
 
@@ -11,7 +12,7 @@ function NorthPath({ room }) {
       <Line
         key={room.id}
         points={[point1.x, point1.y, point2.x, point2.y]}
-        stroke="brown"
+        stroke={deepOrange[900]}
         strokeWidth={3}
         dash={[5, 2]}
       />
@@ -28,7 +29,7 @@ function EastPath({ room }) {
       <Line
         key={room.id}
         points={[point1.x, point1.y, point2.x, point2.y]}
-        stroke="brown"
+        stroke={deepOrange[900]}
         strokeWidth={3}
         dash={[5, 2]}
       />
