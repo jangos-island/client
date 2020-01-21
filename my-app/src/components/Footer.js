@@ -6,7 +6,7 @@ const useStyle = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary
+    backgroundColor: theme.palette.grey[100]
   }
 }));
 
@@ -15,7 +15,7 @@ function Footer() {
   return (
     <>
       <Paper variant="outlined" className={classes.paper}>
-        Footer
+        © 2020 Jango's Island
       </Paper>
     </>
   );
