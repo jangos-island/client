@@ -22,7 +22,9 @@ const useStyle = makeStyles(theme => ({
   button: {
     height: 40,
     padding: 0,
-    minWidth: 40
+    minWidth: 40,
+    background: "#33A9FF",
+    color: "white"
   },
   buttonContainer: {
     width: 40 * 3,
@@ -45,7 +47,6 @@ function Navigation({ handleClick }) {
           className={classes.button}
           onClick={handleClick("n")}
           variant="contained"
-          color="primary"
         >
           <ArrowUpward />
         </Button>
@@ -55,7 +56,6 @@ function Navigation({ handleClick }) {
           className={classes.button}
           onClick={handleClick("w")}
           variant="contained"
-          color="primary"
         >
           <ArrowBack />
         </Button>
@@ -63,7 +63,6 @@ function Navigation({ handleClick }) {
           className={classes.button}
           onClick={handleClick("e")}
           variant="contained"
-          color="primary"
         >
           <ArrowForward />
         </Button>
@@ -73,7 +72,6 @@ function Navigation({ handleClick }) {
           className={classes.button}
           onClick={handleClick("s")}
           variant="contained"
-          color="primary"
         >
           <ArrowDownward />
         </Button>
