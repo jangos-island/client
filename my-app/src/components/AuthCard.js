@@ -96,7 +96,6 @@ function AuthCard({ setToken }) {
   };
 
   const resetField = () => {
-    setField("username", "");
     setField("password", "");
     setField("password2", "");
   };
