@@ -7,7 +7,7 @@ function Header({ onLogout }) {
   return (
     <>
       <Typography align="center" variant="h3">
-        Welcome to Jango's Island
+        Welcome to Jango's Island <span role="img" aria-label="tada">🎉</span>
       </Typography>
       <Button onClick={onLogout} color="primary" variant="outlined">
         Logout
