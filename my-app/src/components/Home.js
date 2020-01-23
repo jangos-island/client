@@ -75,9 +75,7 @@ function Home({ setToken }) {
   useEffect(() => {
     if (msg && msg.info) {
       toast.info(msg.info);
-    } else if (msg && msg.message) {
-      toast.warn(msg.message);
-    }
+    } 
   }, [msg, toast]);
 
   useEffect(() => {
@@ -112,7 +110,11 @@ function Home({ setToken }) {
           />
         </Grid>
         <Grid item xs={12} md={4}>
-          <RoomInfo gameState={gameState} handleClick={handleClick} />
+          <RoomInfo
+            chat={msg && msg.message}
+            gameState={gameState}
+            handleClick={handleClick}
+          />
         </Grid>
         {/* <Grid item xs={12} md={12}>
           <Extra />
