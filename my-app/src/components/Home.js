@@ -29,7 +29,7 @@ const useStyle = makeStyles(theme => ({
   }
 }));
 
-const pusher = new Pusher("6b186a39234bb8ba6d66", {
+const pusher = new Pusher(process.env.REACT_APP_PUSHER, {
   cluster: "us3",
   encrypted: true
 });
