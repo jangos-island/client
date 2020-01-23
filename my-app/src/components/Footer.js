@@ -38,21 +38,7 @@ function Footer() {
       <Typography className={classes.company} variant="h6">
         Jango's Island brought to you by:
       </Typography>
-      <Paper className={classes.paper}>
-        <Card>
-          <CardMedia
-            className={classes.pic}
-            component="a"
-            image="https://ca.slack-edge.com/T4JUEB3ME-UDYTEQDHA-g61b944f1d67-512"
-            title="A"
-            href="https://github.com/bcuz"
-            target="_blank"
-          />
-          <CardContent>
-            <Typography variant="h5">Adam</Typography>
-          </CardContent>
-        </Card>
-
+      <Paper className={classes.paper} elevation="0">
         <Card>
           <div>
             <CardMedia
@@ -92,6 +78,19 @@ function Footer() {
           />
           <CardContent>
             <Typography variant="h5">Kristea</Typography>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardMedia
+            className={classes.pic}
+            component="a"
+            image="https://ca.slack-edge.com/T4JUEB3ME-UDYTEQDHA-g61b944f1d67-512"
+            title="A"
+            href="https://github.com/bcuz"
+            target="_blank"
+          />
+          <CardContent>
+            <Typography variant="h5">Adam</Typography>
           </CardContent>
         </Card>
       </Paper>
