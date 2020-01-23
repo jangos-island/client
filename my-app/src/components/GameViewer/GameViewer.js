@@ -8,7 +8,7 @@ const useStyle = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    backgroundColor: theme.palette.grey[100]
+    background: "rgba(255,255,255, .7)"
   },
   canvasContainer: {
     height: 600,

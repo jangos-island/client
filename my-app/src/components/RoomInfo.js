@@ -15,7 +15,7 @@ const useStyle = makeStyles(theme => ({
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: theme.palette.grey[100]
+    background: "rgba(255,255,255, .7)"
   },
   players: {
     textAlign: "left",
