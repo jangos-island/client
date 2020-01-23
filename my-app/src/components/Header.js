@@ -11,13 +11,15 @@ const useStyle = makeStyles(theme => ({
   //   justifyContent: "space-between"
   // },
   MuiAppBar: {
-    background: "#33A9FF",
+    background: "rgba(255,255,255, .7)",
     position: "static"
   },
 
   MuiButton: {
-    color: "white",
-    marginLeft: "60px"
+    color: "black"
+  },
+  title: {
+    color: "black"
   }
 }));
 

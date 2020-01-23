@@ -6,14 +6,20 @@ import Grid from "@material-ui/core/Grid";
 import { gameInit, move, getRooms } from "../libs/protected-api";
 import Header from "./Header";
 import GameViewer from "./GameViewer/GameViewer";
-// import Extra from "./Extra";
 import Footer from "./Footer";
 import RoomInfo from "./RoomInfo";
+import Beach from "../assets/beachbackground.png";
 
 const useStyle = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
+    backgroundImage: `url(${Beach})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    height: "100%"
   },
   header: {
     textAlign: "center"

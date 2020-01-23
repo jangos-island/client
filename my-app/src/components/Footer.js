@@ -9,7 +9,7 @@ const useStyle = makeStyles(theme => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    // backgroundColor: "#33A9FF",
+    background: "#none",
     textAlign: "center"
   },
   paper: {
@@ -17,7 +17,7 @@ const useStyle = makeStyles(theme => ({
     flexDirection: "row",
     paddingBottom: "25px",
     textAlign: "center",
-    backgroundColor: "#33A9FF",
+    background: "none",
     justifyContent: "space-around"
   },
   pic: {
@@ -25,7 +25,7 @@ const useStyle = makeStyles(theme => ({
     height: "200px"
   },
   company: {
-    backgroundColor: "#33A9FF",
+    // background: "rgba(51, 169, 255, .7)",
     align: "center",
     paddingBottom: "15px"
   }
