@@ -19,3 +19,7 @@ export function move(direction) {
 export function getRooms() {
   return api.get("/api/adv/rooms/");
 }
+
+export function say(msg) {
+  return api.post("/api/adv/say/", msg);
+}
