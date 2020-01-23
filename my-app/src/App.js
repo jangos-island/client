@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './App.css'
 import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 
