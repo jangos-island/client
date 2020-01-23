@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Pusher from "pusher-js";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
-import { gameInit, move, getRooms } from "../libs/protected-api";
+import { gameInit, move, getRooms, say } from "../libs/protected-api";
 import Header from "./Header";
 import GameViewer from "./GameViewer/GameViewer";
 import Footer from "./Footer";
@@ -26,11 +29,24 @@ const useStyle = makeStyles(theme => ({
   }
 }));
 
+const pusher = new Pusher("6b186a39234bb8ba6d66", {
+  cluster: "us3",
+  encrypted: true
+});
+
+toast.configure({
+  autoClose: 3000,
+  draggable: false,
+  position: toast.POSITION.BOTTOM_RIGHT
+});
+
 function Home({ setToken }) {
   const classes = useStyle();
   const [gameState, setState] = useState("");
   const [rooms, setRooms] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [msg, setMsg] = useState();
+  const [userId, setId] = useState();
 
   useEffect(() => {
     setLoading(_ => true);
@@ -49,10 +65,28 @@ function Home({ setToken }) {
       const res = await gameInit();
       if (res.data) {
         setState(_ => res.data);
+        setId(_ => res.data.uuid);
       }
     };
     init();
+    say({ message: "Hi!" });
   }, []);
+
+  useEffect(() => {
+    if (msg && msg.info) {
+      toast.info(msg.info);
+    } else if (msg && msg.message) {
+      toast.warn(msg.message);
+    }
+  }, [msg, toast]);
+
+  useEffect(() => {
+    const channel = pusher.subscribe(`p-channel-${userId}`);
+    channel.bind("broadcast", function(data) {
+      setMsg(() => data);
+    });
+    return () => pusher.unsubscribe(`p-channel-${userId}`);
+  }, [userId]);
 
   const handleClick = direction => async () => {
     const res = await move(direction);
