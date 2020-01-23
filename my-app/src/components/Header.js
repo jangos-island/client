@@ -27,7 +27,6 @@ function Header({ onLogout }) {
   const classes = useStyle();
 
   return (
-<<<<<<< HEAD
     <div className={classes.root}>
       <AppBar className={classes.MuiAppBar}>
         <Toolbar>
@@ -51,16 +50,6 @@ function Header({ onLogout }) {
         </Toolbar>
       </AppBar>
     </div>
-=======
-    <>
-      <Typography align="center" variant="h3">
-        Welcome to Jango's Island
-      </Typography>
-      <Button onClick={onLogout} color="primary" variant="outlined">
-        Logout
-      </Button>
-    </>
->>>>>>> 10dc9a5cb945a4ee599568bbb2c88a73c0e25125
   );
 }
 
