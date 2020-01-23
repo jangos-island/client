@@ -10,11 +10,27 @@ import Button from "@material-ui/core/Button";
 import CardMedia from "@material-ui/core/CardMedia";
 import { useFormState } from "react-use-form-state";
 import { login, register } from "../libs/auth-api";
+import Footer from "./Footer";
+import Beach from "../assets/beachbackground.png";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    padding: theme.spacing(1),
+    backgroundImage: `url(${Beach})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    height: "100%"
+  },
+  form: {
+    paddingBottom: "50px"
+  },
   card: {
     margin: "0 auto",
-    maxWidth: 400
+    maxWidth: 400,
+    paddingBottom: "30px"
   },
   media: {
     height: 300,
@@ -111,78 +127,81 @@ function AuthCard({ setToken }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          component="img"
-          image={require("../assets/JangosIsland.png")}
-          title="island"
-        />
-        <CardContent>
-          <Typography align="center" gutterBottom variant="h5" component="h2">
-            Can you escape the island?
-          </Typography>
-          <TextField
-            className={classes.withMargin}
-            {...text("username")}
-            label="Username"
-            required
-            variant="outlined"
-            fullWidth
+    <div className={classes.root}>
+      <form onSubmit={handleSubmit} className={classes.form}>
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image={require("../assets/JangosIsland.png")}
+            title="island"
           />
-          <TextField
-            className={classes.withMargin}
-            {...text("password")}
-            label="Password"
-            required
-            variant="outlined"
-            fullWidth
-            type="password"
-          />
-          {isNewUser && (
+          <CardContent>
+            <Typography align="center" gutterBottom variant="h5" component="h2">
+              Can you escape the island?
+            </Typography>
             <TextField
               className={classes.withMargin}
-              {...text("password2")}
-              label="Repeat Password"
+              {...text("username")}
+              label="Username"
+              required
+              variant="outlined"
+              fullWidth
+            />
+            <TextField
+              className={classes.withMargin}
+              {...text("password")}
+              label="Password"
               required
               variant="outlined"
               fullWidth
               type="password"
             />
-          )}
-          {errors.login && (
-            <Typography className={classes.hintError} variant="body2">
-              {errors.login}
+            {isNewUser && (
+              <TextField
+                className={classes.withMargin}
+                {...text("password2")}
+                label="Repeat Password"
+                required
+                variant="outlined"
+                fullWidth
+                type="password"
+              />
+            )}
+            {errors.login && (
+              <Typography className={classes.hintError} variant="body2">
+                {errors.login}
+              </Typography>
+            )}
+            {errors.register && (
+              <Typography className={classes.hintError} variant="body2">
+                {errors.register}
+              </Typography>
+            )}
+          </CardContent>
+          <CardActions className={classes.cardActions}>
+            <Typography variant="body2">
+              {isNewUser ? registerText : loginText}
+              <span
+                onClick={() => setNewUser(prev => !prev)}
+                className={classes.link}
+              >
+                {isNewUser ? "Login" : "Register"}
+              </span>
             </Typography>
-          )}
-          {errors.register && (
-            <Typography className={classes.hintError} variant="body2">
-              {errors.register}
-            </Typography>
-          )}
-        </CardContent>
-        <CardActions className={classes.cardActions}>
-          <Typography variant="body2">
-            {isNewUser ? registerText : loginText}
-            <span
-              onClick={() => setNewUser(prev => !prev)}
-              className={classes.link}
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              color="primary"
+              size="large"
             >
-              {isNewUser ? "Login" : "Register"}
-            </span>
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={handleSubmit}
-            color="primary"
-            size="large"
-          >
-            {isNewUser ? "Register" : "Login"}
-          </Button>
-        </CardActions>
-      </Card>
-    </form>
+              {isNewUser ? "Register" : "Login"}
+            </Button>
+          </CardActions>
+        </Card>
+      </form>
+      <Footer />
+    </div>
   );
 }
 
