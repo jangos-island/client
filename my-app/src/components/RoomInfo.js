@@ -39,7 +39,7 @@ function RoomInfo({ gameState, chat, handleClick }) {
             <Typography variant="body1">{gameState.description}</Typography>
           </div>
           <div className={classes.players}>
-            <Typography textAlign="left" variant="subtitle1">
+            <Typography align="left" variant="subtitle1">
               Other Players:
             </Typography>
             {gameState.players &&
