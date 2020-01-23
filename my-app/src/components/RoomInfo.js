@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 import Navigation from "./Navigation";
+import ChatBox from "./ChatBox";
 
 const useStyle = makeStyles(theme => ({
   paper: {
@@ -27,7 +28,7 @@ const useStyle = makeStyles(theme => ({
   }
 }));
 
-function RoomInfo({ gameState, handleClick }) {
+function RoomInfo({ gameState, chat, handleClick }) {
   const classes = useStyle();
   return (
     <>
@@ -50,6 +51,7 @@ function RoomInfo({ gameState, handleClick }) {
               ))}
           </div>
         </div>
+        <ChatBox chat={chat} />
         <Navigation handleClick={handleClick} />
       </Paper>
     </>
