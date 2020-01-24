@@ -17,7 +17,7 @@ const useStyle = makeStyles(theme => ({
   },
   canvasContainer: {
     height: 600,
-    overflow: "hidden"
+    overflow: "scroll"
   }
 }));
 
