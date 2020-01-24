@@ -2,8 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import Face from "@material-ui/icons/Face";
+import Tooltip from "@material-ui/core/Tooltip";
 
-import Navigation from "./Navigation";
 import ChatBox from "./ChatBox";
 
 const useStyle = makeStyles(theme => ({
@@ -14,19 +15,41 @@ const useStyle = makeStyles(theme => ({
     height: 600,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
     alignItems: "center",
     background: "rgba(255,255,255, .7)"
   },
   players: {
-    textAlign: "left",
     width: "100%",
-    height: 175,
-    overflow: "scroll"
+    height: 80,
+    display: "flex",
+    overflowX: "scroll",
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(1)
+  },
+  player: {
+    border: `1px solid gray`,
+    borderRadius: 20,
+    maxWidth: 60,
+    minWidth: 60,
+    overflow: "hidden",
+    padding: theme.spacing(0.5),
+    marginRight: theme.spacing(0.5),
+    marginBottom: theme.spacing(1),
+    background: "lightgray",
+    color: "#33A9FF"
+  },
+  playerName: {
+    width: 50,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
   },
   description: {
-    height: 150,
+    height: 120,
     width: "100%"
+  },
+  row: {
+    display: "flex"
   }
 }));
 
@@ -35,23 +58,29 @@ function RoomInfo({ gameState, chat, handleClick }) {
   return (
     <>
       <Paper variant="outlined" className={classes.paper}>
-        <div>
-          <div className={classes.description}>
-            <Typography variant="h5">{gameState.title}</Typography>
-            <Typography variant="body1">{gameState.description}</Typography>
-          </div>
-          <div className={classes.players}>
-            <Typography align="left" variant="subtitle1">
-              Other Players in this room:
-            </Typography>
-            {gameState.players &&
-              gameState.players.map((player, idx) => (
-                <Typography
-                  key={idx}
-                  variant="body1"
-                >{`- ${player}`}</Typography>
-              ))}
-          </div>
+        <div className={classes.description}>
+          <Typography variant="h5">{gameState.title}</Typography>
+          <Typography variant="body1">{gameState.description}</Typography>
+        </div>
+        <Typography align="left" variant="subtitle1">
+          Players on this island:
+        </Typography>
+        <div className={classes.players}>
+          {gameState.players &&
+            gameState.players.map((player, idx) => (
+              <div className={classes.player}>
+                <Face />
+                <Tooltip title={player}>
+                  <Typography
+                    className={classes.playerName}
+                    key={idx}
+                    variant="body1"
+                  >
+                    {player}
+                  </Typography>
+                </Tooltip>
+              </div>
+            ))}
         </div>
         <ChatBox chat={chat} />
       </Paper>

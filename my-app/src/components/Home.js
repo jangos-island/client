@@ -73,7 +73,24 @@ function Home({ setToken }) {
 
   useEffect(() => {
     if (msg && msg.info) {
-      toast.info(msg.info);
+      const player = msg.info.substring(0, msg.info.indexOf(" "));
+      const isEntering = msg.info.includes("has entered from");
+      if (isEntering) {
+        setState(prev => ({
+          ...prev,
+          players: [...prev.players, player]
+        }));
+        toast.success(msg.info);
+      } else {
+        setState(prev => ({
+          ...prev,
+          players: prev.players.filter(p => p !== player)
+        }));
+        toast.warn(msg.info);
+      }
+    }
+    if (msg && msg.message && msg.message.includes(`@${gameState.name}`)) {
+      toast.info(msg.message);
     }
   }, [msg, toast]);
 
