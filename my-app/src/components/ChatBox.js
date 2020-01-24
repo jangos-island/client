@@ -10,16 +10,22 @@ import Button from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import SendIcon from "@material-ui/icons/Send";
 import { say } from "../libs/protected-api";
+import Face from "@material-ui/icons/Face";
 
 const useStyle = makeStyles(theme => ({
   chat: {
     width: "100%",
-    background: "rgba(255,255,255, .7)"
+    background: "rgba(255,255,255, .7)",
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column"
   },
   content: {
-    height: 150,
+    flexGrow: 1,
+    height: 250,
     overflow: "scroll"
   },
   header: {
@@ -28,6 +34,17 @@ const useStyle = makeStyles(theme => ({
   button: {
     borderRadius: "0",
     transition: "none"
+  },
+  chat: {
+    width: "100%",
+    padding: 0
+  },
+  alignRight: {
+    textAlign: "right"
+  },
+  avatar: {
+    minWidth: 30,
+    color: "#33A9FF",
   }
 }));
 
@@ -64,8 +81,33 @@ function ChatBox({ chat }) {
       <CardContent ref={scroll} className={classes.content}>
         <List dense={true}>
           {messages.map((msg, id) => (
-            <ListItem key={id}>
-              <ListItemText primary={msg} />
+            <ListItem
+              className={`${classes.chat} ${msg.startsWith("You:") &&
+                classes.alignRight}`}
+              key={id}
+            >
+              {msg.startsWith("You:") && (
+                <>
+                  <ListItemText
+                    primary={msg.substring(0, msg.indexOf(":"))}
+                    secondary={msg.substring(msg.indexOf(":") + 2)}
+                  />
+                  <ListItemAvatar className={classes.avatar}>
+                    <Face />
+                  </ListItemAvatar>
+                </>
+              )}
+              {!msg.startsWith("You:") && (
+                <>
+                  <ListItemAvatar className={classes.avatar}>
+                    <Face />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={msg.substring(0, msg.indexOf(":"))}
+                    secondary={msg.substring(msg.indexOf(":") + 2)}
+                  />
+                </>
+              )}
             </ListItem>
           ))}
         </List>
@@ -87,7 +129,7 @@ function ChatBox({ chat }) {
               </Button>
             </InputAdornment>
           }
-        />{" "}
+        />
       </CardActions>
     </Card>
   );
