@@ -40,7 +40,7 @@ function RoomInfo({ gameState, chat, handleClick }) {
           </div>
           <div className={classes.players}>
             <Typography align="left" variant="subtitle1">
-              Other Players:
+              Other Players in this room:
             </Typography>
             {gameState.players &&
               gameState.players.map((player, idx) => (
