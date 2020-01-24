@@ -13,7 +13,7 @@ function NorthPath({ room }) {
         key={room.id}
         points={[point1.x, point1.y, point2.x, point2.y]}
         stroke={deepOrange[900]}
-        strokeWidth={3}
+        strokeWidth={5}
         dash={[5, 2]}
       />
     );
@@ -30,7 +30,7 @@ function EastPath({ room }) {
         key={room.id}
         points={[point1.x, point1.y, point2.x, point2.y]}
         stroke={deepOrange[900]}
-        strokeWidth={3}
+        strokeWidth={5}
         dash={[5, 2]}
       />
     );

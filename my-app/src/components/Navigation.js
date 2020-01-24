@@ -17,7 +17,11 @@ const useStyle = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "lightgray"
+    backgroundColor: "lightgray",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    margin: theme.spacing(2)
   },
   button: {
     height: 40,

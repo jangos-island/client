@@ -13,7 +13,7 @@ function Player({ coord }) {
         x={x}
         y={y}
         innerRadius={8}
-        outerRadius={20}
+        outerRadius={15}
         fill={orange[900]}
       />
     );
