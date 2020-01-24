@@ -15,11 +15,16 @@ import { say } from "../libs/protected-api";
 
 const useStyle = makeStyles(theme => ({
   content: {
-    height: 100,
+    height: 150,
+    width: 150,
     overflow: "scroll"
   },
   header: {
     textAlign: "center"
+  },
+  button: {
+    borderRadius: "0",
+    backgroundColor: "transparent"
   }
 }));
 
@@ -69,7 +74,11 @@ function ChatBox({ chat }) {
           fullWidth
           endAdornment={
             <InputAdornment position="end">
-              <Button onClick={handleSubmit} edge="end">
+              <Button
+                onClick={handleSubmit}
+                edge="end"
+                className={classes.button}
+              >
                 Send
               </Button>
             </InputAdornment>
