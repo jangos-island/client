@@ -20,10 +20,12 @@ const useStyle = makeStyles(theme => ({
   },
   players: {
     textAlign: "left",
-    width: "100%"
+    width: "100%",
+    height: 175,
+    overflow: "scroll"
   },
   description: {
-    height: 200,
+    height: 150,
     width: "100%"
   }
 }));
