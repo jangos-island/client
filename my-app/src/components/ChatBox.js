@@ -74,8 +74,7 @@ function ChatBox({ chat }) {
               </Button>
             </InputAdornment>
           }
-        />
-        \{" "}
+        />{" "}
       </CardActions>
     </Card>
   );
