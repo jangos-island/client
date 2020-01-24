@@ -52,7 +52,6 @@ function RoomInfo({ gameState, chat, handleClick }) {
           </div>
         </div>
         <ChatBox chat={chat} />
-        <Navigation handleClick={handleClick} />
       </Paper>
     </>
   );
