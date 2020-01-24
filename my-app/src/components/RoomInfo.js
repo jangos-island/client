@@ -50,7 +50,6 @@ function RoomInfo({ gameState, handleClick }) {
               ))}
           </div>
         </div>
-        <Navigation handleClick={handleClick} />
       </Paper>
     </>
   );
