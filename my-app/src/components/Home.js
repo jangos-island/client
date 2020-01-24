@@ -69,13 +69,12 @@ function Home({ setToken }) {
       }
     };
     init();
-    say({ message: "Hi!" });
   }, []);
 
   useEffect(() => {
     if (msg && msg.info) {
       toast.info(msg.info);
-    } 
+    }
   }, [msg, toast]);
 
   useEffect(() => {
