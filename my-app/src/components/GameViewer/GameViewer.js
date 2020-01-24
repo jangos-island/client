@@ -7,6 +7,7 @@ import Navigation from "../Navigation";
 
 const useStyle = makeStyles(theme => ({
   paper: {
+    position: "relative",
     padding: theme.spacing(2),
     textAlign: "center",
     display: "flex",
@@ -17,9 +18,6 @@ const useStyle = makeStyles(theme => ({
   canvasContainer: {
     height: 600,
     overflow: "hidden"
-  },
-  nav: {
-    margin: "10px 50px"
   }
 }));
 
@@ -33,9 +31,7 @@ function GameViewer({ isLoading, gameState, rooms, handleClick }) {
         <div className={classes.canvasContainer}>
           <Canvas rooms={rooms} playerCoord={gameState.coord} />
         </div>
-        <div className={classes.nav}>
-          <Navigation handleClick={handleClick} />
-        </div>
+        <Navigation handleClick={handleClick} />
       </Paper>
     </>
   );

@@ -1,5 +1,5 @@
 export function transformCoords({ x, y }) {
-  const xBase = 0.05 * 1000;
+  const xBase = 0.01 * 1000;
   const xUnit = (1000 - 2 * xBase) / 35;
   x = xBase + x * xUnit;
 
