@@ -89,6 +89,9 @@ function Home({ setToken }) {
         toast.warn(msg.info);
       }
     }
+    if (msg && msg.message && msg.message.includes(`@${gameState.name}`)) {
+      toast.info(msg.message);
+    }
   }, [msg, toast]);
 
   useEffect(() => {
