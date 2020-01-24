@@ -10,13 +10,16 @@ import Button from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-
+import SendIcon from "@material-ui/icons/Send";
 import { say } from "../libs/protected-api";
 
 const useStyle = makeStyles(theme => ({
+  chat: {
+    width: "100%",
+    background: "rgba(255,255,255, .7)"
+  },
   content: {
     height: 150,
-    width: 150,
     overflow: "scroll"
   },
   header: {
@@ -24,7 +27,7 @@ const useStyle = makeStyles(theme => ({
   },
   button: {
     borderRadius: "0",
-    backgroundColor: "transparent"
+    transition: "none"
   }
 }));
 
@@ -57,7 +60,7 @@ function ChatBox({ chat }) {
   };
 
   return (
-    <Card>
+    <Card className={classes.chat}>
       <CardContent ref={scroll} className={classes.content}>
         <List dense={true}>
           {messages.map((msg, id) => (
@@ -73,13 +76,14 @@ function ChatBox({ chat }) {
           variant="outlined"
           fullWidth
           endAdornment={
-            <InputAdornment position="end">
+            <InputAdornment>
               <Button
                 onClick={handleSubmit}
-                edge="end"
+                variant="contained"
                 className={classes.button}
               >
                 Send
+                <SendIcon />
               </Button>
             </InputAdornment>
           }
