@@ -20,10 +20,12 @@ const useStyle = makeStyles(theme => ({
   },
   players: {
     textAlign: "left",
-    width: "100%"
+    width: "100%",
+    height: 175,
+    overflow: "scroll"
   },
   description: {
-    height: 200,
+    height: 150,
     width: "100%"
   }
 }));
@@ -40,7 +42,7 @@ function RoomInfo({ gameState, chat, handleClick }) {
           </div>
           <div className={classes.players}>
             <Typography align="left" variant="subtitle1">
-              Other Players:
+              Other Players in this room:
             </Typography>
             {gameState.players &&
               gameState.players.map((player, idx) => (
