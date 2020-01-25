@@ -23,6 +23,10 @@ const useStyle = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column"
   },
+  chatText: {
+    width: "100%",
+    padding: 0
+  },
   content: {
     flexGrow: 1,
     height: 250,
@@ -35,7 +39,6 @@ const useStyle = makeStyles(theme => ({
     borderRadius: "0",
     transition: "none"
   },
-
   alignRight: {
     textAlign: "right"
   },
@@ -79,7 +82,7 @@ function ChatBox({ chat }) {
         <List dense={true}>
           {messages.map((msg, id) => (
             <ListItem
-              className={`${classes.chat} ${msg.startsWith("You:") &&
+              className={`${classes.chatText} ${msg.startsWith("You:") &&
                 classes.alignRight}`}
               key={id}
             >
