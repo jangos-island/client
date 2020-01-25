@@ -35,16 +35,16 @@ const useStyle = makeStyles(theme => ({
     borderRadius: "0",
     transition: "none"
   },
-  chat: {
-    width: "100%",
-    padding: 0
-  },
+  // chat: {
+  //   width: "100%",
+  //   padding: 0
+  // },
   alignRight: {
     textAlign: "right"
   },
   avatar: {
     minWidth: 30,
-    color: "#33A9FF",
+    color: "#33A9FF"
   }
 }));
 
