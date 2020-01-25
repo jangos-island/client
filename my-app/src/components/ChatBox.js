@@ -35,10 +35,7 @@ const useStyle = makeStyles(theme => ({
     borderRadius: "0",
     transition: "none"
   },
-  // chat: {
-  //   width: "100%",
-  //   padding: 0
-  // },
+
   alignRight: {
     textAlign: "right"
   },
