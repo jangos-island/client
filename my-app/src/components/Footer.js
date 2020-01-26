@@ -84,7 +84,7 @@ function Footer() {
           <CardMedia
             className={classes.pic}
             component="a"
-            image="https://ca.slack-edge.com/T4JUEB3ME-UDYTEQDHA-g61b944f1d67-512"
+            image="https://ca.slack-edge.com/T0DDFE08K-U98E4PXMG-92d1f0c9a77e-512"
             title="A"
             href="https://github.com/bcuz"
             target="_blank"
