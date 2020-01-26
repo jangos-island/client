@@ -86,7 +86,7 @@ function Home({ setToken }) {
           ...prev,
           players: prev.players.filter(p => p !== player)
         }));
-        toast.warn(msg.info);
+        toast.error(msg.info);
       }
     }
     if (msg && msg.message && msg.message.includes(`@${gameState.name}`)) {
