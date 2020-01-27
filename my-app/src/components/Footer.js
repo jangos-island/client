@@ -5,6 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import yasirah from "../assets/yasirah.jpeg";
+import jordan from "../assets/jordan.jpeg";
+import kristea from "../assets/kristea.png";
+import adam from "../assets/adam.jpeg";
 const useStyle = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -44,7 +48,7 @@ function Footer() {
             <CardMedia
               className={classes.pic}
               component="a"
-              image="https://ca.slack-edge.com/T4JUEB3ME-UC5TCLQKW-eb0ee8297071-512"
+              image={yasirah}
               title="Y"
               href="https://github.com/ykrueng"
               target="_blank"
@@ -58,7 +62,7 @@ function Footer() {
           <CardMedia
             className={classes.pic}
             component="a"
-            image="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
+            image={jordan}
             title="J"
             href="https://github.com/jthicks91"
             target="_blank"
@@ -71,7 +75,7 @@ function Footer() {
           <CardMedia
             className={classes.pic}
             component="a"
-            image="https://ca.slack-edge.com/T4JUEB3ME-UD5QF1EH3-97264236fe41-512"
+            image={kristea}
             title="K"
             href="https://github.com/bykristea"
             target="_blank"
@@ -84,7 +88,7 @@ function Footer() {
           <CardMedia
             className={classes.pic}
             component="a"
-            image="https://ca.slack-edge.com/T0DDFE08K-U98E4PXMG-92d1f0c9a77e-512"
+            image={adam}
             title="A"
             href="https://github.com/bcuz"
             target="_blank"
